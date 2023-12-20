@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Tracks</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Oswald:wght@300&display=swap">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 18px; /* Adjust the base font size as needed */
+            margin: 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            text-align: left;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Bebas Neue', sans-serif;
+            color: #1DB954; /* Spotify green color */
+        }
+
+        p {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 300;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px;
+        }
+
+        .left-column, .right-column {
+            flex: 1;
+            padding-left: 20px; /* Adjust the padding as needed */
+            padding-right: 20px; /* Adjust the padding as needed */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="left-column">
+        <h2>Top Tracks List:</h2>
+        <ul>
+            {% for track in top_tracks %}
+            <li>{{ track }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Mood Writeup:</h2>
+        <p>{{ mood_writeup }}</p>
+
+        <h2>DALL·E-3 Prompt:</h2>
+        <p>{{ dalle_3_prompt }}</p>
+    </div>
+
+    <div class="right-column">
+        <h2>Generated DALL·E-3 Image:</h2>
+        <img src="{{ generated_image_url }}" alt="Generated DALL·E-3 Image">
+    </div>
+
+</body>
+
+</html>
